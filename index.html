@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Monkey Mayhem VR - Meet the Mods</title>
+<style>
+    /* Animated Gradient Background */
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        color: white;
+        text-align: center;
+        background: linear-gradient(-45deg, #ff0000, #ffcc00, #00ffcc, #6600ff);
+        background-size: 400% 400%;
+        animation: gradientBG 20s ease infinite;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* Particle animation */
+    .particle {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        animation: float 10s linear infinite;
+        pointer-events: none;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0) translateX(0); opacity: 1; }
+        100% { transform: translateY(-1000px) translateX(200px); opacity: 0; }
+    }
+
+    header {
+        padding: 30px;
+        background: rgba(0,0,0,0.6);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin: 0;
+        text-shadow: 2px 2px 8px #000;
+    }
+
+    .team-section {
+        padding: 50px 20px;
+    }
+
+    .team-grid {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    /* Member cards */
+    .member {
+        width: 220px;
+        background: rgba(255,255,255,0.1);
+        padding: 20px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        color: white;
+        transition: transform 0.3s, box-shadow 0.3s;
+        display: inline-block;
+        animation: fadeIn 1s ease forwards;
+    }
+
+    /* Owner Highlight */
+    .owner {
+        border: 3px solid gold;
+        box-shadow: 0 0 20px gold;
+    }
+
+    .member img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 15px;
+        transition: transform 0.3s;
+    }
+
+    .member:hover {
+        transform: translateY(-10px) scale(1.05);
+        box-shadow: 0 10px 20px rgba(255,255,255,0.5);
+    }
+
+    .member h3 {
+        margin: 15px 0 5px;
+        text-shadow: 1px 1px 3px #000;
+    }
+
+    .member p {
+        margin: 0 0 10px 0;
+        font-size: 1rem;
+        color: #ffcc00;
+    }
+
+    .social-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .social-buttons a {
+        padding: 8px 12px;
+        border-radius: 8px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: transform 0.2s, background 0.2s;
+        font-size: 0.9rem;
+    }
+
+    .youtube { background: #FF0000; }
+    .youtube:hover { background: #cc0000; transform: scale(1.1); }
+
+    .tiktok { background: #000000; }
+    .tiktok:hover { background: #111111; transform: scale(1.1); }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Stagger animation delays */
+    .member:nth-child(1) {animation-delay: 0.2s;}
+    .member:nth-child(2) {animation-delay: 0.4s;}
+    .member:nth-child(3) {animation-delay: 0.6s;}
+
+    @media (max-width: 600px) {
+        h1 { font-size: 2rem; }
+        .team-grid { flex-direction: column; align-items: center; }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>🐒 Meet the Mods - Monkey Mayhem VR</h1>
+</header>
+
+<section class="team-section">
+    <div class="team-grid">
+
+        <!-- Owner -->
+        <div class="member owner">
+            <img src="https://yt3.googleusercontent.com/W6xloCdKJNuOH-hBlbGyZPtmtb43l-BEbyMwK0cFCW4Z0iCO2yQARydBBC377YQccK61x-YW=s160-c-k-c0x00ffffff-no-rj " alt="Owner 1" />
+            <h3>Wxlfy</h3>
+            <p>Lead Developer</p>
+            <div class="social-buttons">
+                <a href="https://www.youtube.com/@ItsWxlfy" target="_blank" class="youtube">YouTube</a>
+            </div>
+        </div>
+
+        <!-- Mod 1 -->
+        <div class="member">
+            <img src="https://yt3.googleusercontent.com/UMb5CZHOuRSRGsqbxQIHtX2Fbxi6AHliyK-2qYCEAk9WEGzN-xJ6PvB5TlAXbqmgug3i87sS=s160-c-k-c0x00ffffff-no-rj" alt="Mod 1" />
+            <h3>BluMonkey</h3>
+            <p>Moderator</p>
+            <div class="social-buttons">
+                <a href="https://www.youtube.com/@BluMonkeGTVR" target="_blank" class="youtube">YouTube</a>
+            </div>
+        </div>
+
+        <!-- Mod 2 -->
+        <div class="member">
+            <img src="https://p16-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/48a8a7d236fb068b5cf62239dfc41878~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=9640&refresh_token=14bde99b&x-expires=1765868400&x-signature=LResK%2BganEfkIo0otiSx31NRo04%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast5" alt="Mod 2" />
+            <h3>Dino</h3>
+            <p>Moderator</p>
+            <div class="social-buttons">
+                <a href="https://www.youtube.com/@Dino_gtt/featured" target="_blank" class="youtube">YouTube</a>
+                <a href="https://www.tiktok.com/@dino_vr.dino" target="_blank" class="tiktok">TikTok</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Particles -->
+<script>
+    // Create floating particles
+    for(let i=0; i<40; i++){
+        let particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.left = Math.random() * window.innerWidth + 'px';
+        particle.style.width = particle.style.height = (Math.random()*6+4) + 'px';
+        particle.style.animationDuration = (Math.random()*10+5) + 's';
+        particle.style.background = `rgba(255,255,255,${Math.random()*0.8+0.2})`;
+        document.body.appendChild(particle);
+    }
+</script>
+
+</body>
+</html>
