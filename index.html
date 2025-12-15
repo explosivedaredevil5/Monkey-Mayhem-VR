@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monkey Mayhem VR</title>
+    <style>
+        /* Animated Gradient Background */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            background: linear-gradient(-45deg, #ff0000, #ffcc00, #00ffcc, #6600ff);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: float 10s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-1000px) translateX(200px);
+                opacity: 0;
+            }
+        }
+
+        header {
+            padding: 50px 20px;
+            background: rgba(0,0,0,0.6);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 8px #000;
+        }
+
+        .buttons {
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 15px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+            .btn.download {
+                background: #28a745;
+            }
+
+                .btn.download:hover {
+                    background: #1e7e34;
+                    transform: scale(1.05);
+                    box-shadow: 0 8px 15px rgba(0,0,0,0.4);
+                }
+
+            .btn.discord {
+                background: #5865F2;
+            }
+
+                .btn.discord:hover {
+                    background: #4752c4;
+                    transform: scale(1.05);
+                    box-shadow: 0 8px 15px rgba(0,0,0,0.4);
+                }
+
+        /* Game Info Section */
+        .game-info {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px 20px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+            .game-info h2 {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+                color: #ffcc00;
+                text-shadow: 1px 1px 4px #000;
+            }
+
+            .game-info p {
+                font-size: 1.2rem;
+                line-height: 1.6;
+                color: #ffffff;
+            }
+
+        /* Meet the Mods Section */
+        .team-section {
+            padding: 50px 20px;
+        }
+
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .member {
+            width: 220px;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            color: white;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+            animation: fadeIn 1s ease forwards;
+        }
+
+            .member img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 15px;
+                transition: transform 0.3s;
+            }
+
+            .member:hover {
+                transform: translateY(-10px) scale(1.05);
+                box-shadow: 0 10px 20px rgba(255,255,255,0.5);
+            }
+
+        /* Owner highlight */
+        .owner {
+            border: 3px solid gold;
+            box-shadow: 0 0 20px gold;
+        }
+
+        .member h3 {
+            margin: 15px 0 5px;
+            text-shadow: 1px 1px 3px #000;
+        }
+
+        .member p {
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            color: #ffcc00;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+            .social-buttons a {
+                padding: 8px 12px;
+                border-radius: 8px;
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+                transition: transform 0.2s, background 0.2s;
+                font-size: 0.9rem;
+            }
+
+        .youtube {
+            background: #FF0000;
+        }
+
+            .youtube:hover {
+                background: #cc0000;
+                transform: scale(1.1);
+            }
+
+        .tiktok {
+            background: #000000;
+        }
+
+            .tiktok:hover {
+                background: #111111;
+                transform: scale(1.1);
+            }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .member:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .member:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .member:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .btn {
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+
+            .game-info h2 {
+                font-size: 2rem;
+            }
+
+            .game-info p {
+                font-size: 1rem;
+            }
+
+            .team-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🐒 Monkey Mayhem VR</h1>
+        <div class="buttons">
+            <a href="https://wxlfyyyyy.itch.io/monkey-mayhem" class="btn download">Download Page</a>
+            <a href="https://discord.gg/664JBgBajx" class="btn discord" target="_blank">Discord Page</a>
+        </div>
+    </header>
+
+    <section class="game-info">
+        <h2>About Monkey Mayhem VR</h2>
+        <p>
+            Monkey Mayhem VR is a thrilling multiplayer VR game where players swing, climb, and explore vibrant jungle maps. Race through obstacles, discover hidden areas, and interact with friends in fast-paced, fun gameplay. With unique maps, mods, and constant updates, the adventure never ends!
+        </p>
+    </section>
+
+    <section class="team-section">
+        <h2>Meet the Team</h2>
+        <div class="team-grid">
+
+            <!-- Owner -->
+            <div class="member owner">
+                <img src="https://yt3.googleusercontent.com/W6xloCdKJNuOH-hBlbGyZPtmtb43l-BEbyMwK0cFCW4Z0iCO2yQARydBBC377YQccK61x-YW=s160-c-k-c0x00ffffff-no-rj" alt="Owner 1" />
+                <h3>Wxlfy</h3>
+                <p>Lead Developer</p>
+                <div class="social-buttons">
+                    <a href="https://www.youtube.com/@ItsWxlfy" target="_blank" class="youtube">YouTube</a>
+                </div>
+            </div>
+
+            <!-- Mod 1 -->
+            <div class="member">
+                <img src="https://yt3.googleusercontent.com/UMb5CZHOuRSRGsqbxQIHtX2Fbxi6AHliyK-2qYCEAk9WEGzN-xJ6PvB5TlAXbqmgug3i87sS=s160-c-k-c0x00ffffff-no-rj" alt="Mod 1" />
+                <h3>BluMonkey</h3>
+                <p>Moderator</p>
+                <div class="social-buttons">
+                    <a href="https://www.youtube.com/@BluMonkeGTVR" target="_blank" class="youtube">YouTube</a>
+                </div>
+            </div>
+
+            <!-- Mod 2 -->
+            <div class="member">
+                <img src="https://yt3.googleusercontent.com/geKlLOOFtVacAZP5NZJ5xlk5NU1a5YI3Urs31HPC1hpwx3hqUe6z9i7KNeQT_x4Gyat4S4iVjw=s160-c-k-c0x00ffffff-no-rj" alt="Mod 2" />
+                <h3>Dino</h3>
+                <p>Moderator</p>
+                <div class="social-buttons">
+                    <a href="https://www.youtube.com/@Dino_gtt" target="_blank" class="youtube">YouTube</a>
+                    <a href="https://www.tiktok.com/@dino_vr.dino" target="_blank" class="tiktok">TikTok</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Floating particles -->
+    <script>
+    for(let i=0; i<40; i++){
+        let particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.left = Math.random() * window.innerWidth + 'px';
+        particle.style.width = particle.style.height = (Math.random()*6+4) + 'px';
+        particle.style.animationDuration = (Math.random()*10+5) + 's';
+        particle.style.background = `rgba(255,255,255,${Math.random()*0.8+0.2})`;
+        document.body.appendChild(particle);
+    }
+    </script>
+
+</body>
+</html>
